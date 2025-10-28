@@ -1,0 +1,13 @@
+body{
+text-align: center;
+ background-image: url(https://wallpapers.com/images/featured/blue-galaxy-txrbj85vrv1fzm4c.jpg);
+  background-size: cover;       
+  background-position: center; 
+  background-repeat: no-repeat;
+  font-family: cursive;
+}
+.galaxy-text {
+    color: aliceblue;
+      background-size: cover;
+  background-position: center;
+}
