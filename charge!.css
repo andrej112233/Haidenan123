@@ -1,0 +1,38 @@
+body{
+text-align: center;
+ background-image: url(https://wallpapers.com/images/featured/blue-galaxy-txrbj85vrv1fzm4c.jpg);
+  background-size: cover;       
+  background-position: center; 
+  background-repeat: no-repeat;
+  font-family: cursive;
+}
+.galaxy-text {
+    color: aliceblue;
+      background-size: cover;
+  background-position: center;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+  body { margin: 0; }
+  nav { background: #333; padding: 10px; }
+  a { color: white; text-decoration: none; margin: 10px; }
+  a:hover { text-decoration: underline; }
+h1 {
+text-align: center;
+ background-image: url(https://wallpapers.com/images/featured/blue-galaxy-txrbj85vrv1fzm4c.jpg);
+  background-size: cover;       
+  background-position: center; 
+  background-repeat: no-repeat;
+  font-family: cursive;
+}
+h2 {
+text-align: center;
+ background-image: url(https://wallpapers.com/images/featured/blue-galaxy-txrbj85vrv1fzm4c.jpg);
+  background-size: cover;       
+  background-position: center; 
+  background-repeat: no-repeat;
+  font-family: cursive;
+}
