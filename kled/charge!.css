@@ -5,9 +5,72 @@ text-align: center;
   background-position: center; 
   background-repeat: no-repeat;
   font-family: cursive;
+  height: 1000px;
 }
 .galaxy-text {
     color: aliceblue;
       background-size: cover;
   background-position: center;
 }
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+  body { margin: 0; }
+  nav { background: #333; padding: 10px; }
+  a { color: white; text-decoration: none; margin: 10px; }
+  a:hover { text-decoration: underline; }
+h1 {
+text-align: center;
+  font-family: cursive;
+}
+h2 {
+text-align: center;
+  font-family: cursive;
+}
+.ja {
+  width:100%;
+  display: flex;
+  justify-content: center;
+  height:200px;
+  gap:16px;
+  transition: 0.3s;
+}
+.ja li{
+  position: relative;
+  overflow: hidden; 
+  flex: 0 0 80px;
+  border-radius: 50px; 
+  cursor:pointer;
+  border-radius: 10px;
+  border: 1.2px solid #eee;
+  box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.4), -2px -5px 10px rgba(0, 0, 0, 0.1);
+  }
+  .ja li img{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .ja li, ja li img {
+    transition: 0.3;
+  }
+  .ja li .ja {
+    transition: 1.5s ease;
+  }
+  .ja span {
+    text-align: center;
+    width: 75%; 
+  }
+  .ja h2{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 4px;
+    margin-bottom: 3px;
+    white-space: nowrap;
+    color: #eee;
+  }
