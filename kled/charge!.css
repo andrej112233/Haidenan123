@@ -110,3 +110,29 @@ text-align: center;
     opacity: 1;
     visibility: visible;
   }  
+    .tablica {
+    width: 300px;
+    padding: 15px;
+    margin: 0 auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  table, th, td {
+    border: 3px solid #000000;
+    color: #eee;
+    background-color: #3d6eb8;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #f2f2f2;
+    color: #333;
+  }
