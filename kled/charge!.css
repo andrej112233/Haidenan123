@@ -66,11 +66,47 @@ text-align: center;
     text-align: center;
     width: 75%; 
   }
-  .ja h2{
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 4px;
-    margin-bottom: 3px;
-    white-space: nowrap;
-    color: #eee;
+  .ja li .ja {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    color: #fff;
+    padding: 15px;
+    background: linear-gradient(
+      0deg, rgb(0 0 0 / 70%) 10% 
+      rgb(255 255 255 /0%) 100%
+    );
+    opacity: 0%;
+    visibility: hidden;
+  } 
+  .ja:hover{
+    gap: 0;
   }
+  .ja li .ja span {
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    bottom: 0%;
+    translate: -50%;
+    scale: 0.85;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .ja li:hover{
+    flex: 0 1 260px;
+    scale: 1.1;
+    z-index: 10;
+    opacity: 1;
+  }
+  .ja li:hover .ja{
+    opacity: 1;
+    visibility: visible;
+  }
+  .ja li:hover span{
+    scale: 1;
+    opacity: 1;
+    visibility: visible;
+  }  
