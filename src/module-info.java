@@ -4,5 +4,5 @@
 /**
  * 
  */
-module zed {
+module SkoIa {
 }
