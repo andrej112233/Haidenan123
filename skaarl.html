@@ -28,3 +28,64 @@
 
 </body>
 </html>
+import java.util.Scanner;
+
+public class Ocjene {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Unesite broj studenata: ");
+        int n = sc.nextInt();
+
+        System.out.print("Unesite broj predmeta: ");
+        int m = sc.nextInt();
+
+        int[][] ocjene = new int[n][m];
+
+        // Unos
+        for (int i = 0; i < n; i++) {
+            System.out.println("Student " + (i + 1));
+            for (int j = 0; j < m; j++) {
+                System.out.print("Predmet " + (j + 1) + ": ");
+                ocjene[i][j] = sc.nextInt();
+            }
+        }
+
+        // Ispis
+        System.out.println("\nOcjene:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                System.out.print(ocjene[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        // Prosjek po studentu
+        for (int i = 0; i < n; i++) {
+            double suma = 0;
+            for (int j = 0; j < m; j++) {
+                suma += ocjene[i][j];
+            }
+            System.out.println("Prosjek studenta " + (i + 1) + ": " + (suma / m));
+        }
+
+        // Najbolji student
+        double maxProsjek = 0;
+        int najbolji = 0;
+
+        for (int i = 0; i < n; i++) {
+            double suma = 0;
+            for (int j = 0; j < m; j++) {
+                suma += ocjene[i][j];
+            }
+            double prosjek = suma / m;
+
+            if (prosjek > maxProsjek) {
+                maxProsjek = prosjek;
+                najbolji = i;
+            }
+        }
+
+        System.out.println("Najbolji student je: " + (najbolji + 1));
+    }
+}
