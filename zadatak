@@ -1,0 +1,41 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class SwingAplikacija {
+
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("Moja Swing Aplikacija");
+        frame.setSize(400, 150);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
+
+        JTextField textField = new JTextField();
+        textField.setBounds(20, 20, 250, 30);
+
+        JButton button = new JButton("Pošalji");
+        button.setBounds(280, 20, 90, 30);
+
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String tekst = textField.getText();
+
+                System.out.println("Unijeli ste: " + tekst);
+
+                JOptionPane.showMessageDialog(
+                        frame,
+                        "Unijeli ste: " + tekst,
+                        "Poruka",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+            }
+        });
+
+        frame.add(textField);
+        frame.add(button);
+
+        frame.setVisible(true);
+    }
+}
