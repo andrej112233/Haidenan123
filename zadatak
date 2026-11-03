@@ -1,41 +1,68 @@
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.Scanner;
 
-public class SwingAplikacija {
+public class Main {
+
+    static int[] a;
+    static int n;
+
+    static void preorder(int i) {
+        if (i >= n) return;
+
+        System.out.print(a[i] + " ");
+        preorder(2 * i + 1);
+        preorder(2 * i + 2);
+    }
+
+    static void inorder(int i) {
+        if (i >= n) return;
+
+        inorder(2 * i + 1);
+        System.out.print(a[i] + " ");
+        inorder(2 * i + 2);
+    }
+
+    static void postorder(int i) {
+        if (i >= n) return;
+
+        postorder(2 * i + 1);
+        postorder(2 * i + 2);
+        System.out.print(a[i] + " ");
+    }
 
     public static void main(String[] args) {
 
-        JFrame frame = new JFrame("Moja Swing Aplikacija");
-        frame.setSize(400, 150);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(null);
+        Scanner sc = new Scanner(System.in);
 
-        JTextField textField = new JTextField();
-        textField.setBounds(20, 20, 250, 30);
+        System.out.println("Unesi brojeve:");
+        String red = sc.nextLine();
 
-        JButton button = new JButton("Pošalji");
-        button.setBounds(280, 20, 90, 30);
+        String[] dijelovi = red.trim().split("\s+");
 
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String tekst = textField.getText();
+        n = dijelovi.length;
+        a = new int[n];
 
-                System.out.println("Unijeli ste: " + tekst);
+        for (int i = 0; i < n; i++) {
+            a[i] = Integer.parseInt(dijelovi[i]);
+        }
 
-                JOptionPane.showMessageDialog(
-                        frame,
-                        "Unijeli ste: " + tekst,
-                        "Poruka",
-                        JOptionPane.INFORMATION_MESSAGE
-                );
-            }
-        });
+        System.out.println("Izaberi obilazak:");
+        System.out.println("1 - Preorder");
+        System.out.println("2 - Inorder");
+        System.out.println("3 - Postorder");
 
-        frame.add(textField);
-        frame.add(button);
+        int izbor = sc.nextInt();
 
-        frame.setVisible(true);
+        System.out.println("Rezultat:");
+
+        if (izbor == 1)
+            preorder(0);
+        else if (izbor == 2)
+            inorder(0);
+        else if (izbor == 3)
+            postorder(0);
+        else
+            System.out.println("Pogresan izbor!");
+
+        sc.close();
     }
 }
