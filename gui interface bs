@@ -1,0 +1,104 @@
+package evidencijaocjena;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class EvidencijaOcjena extends JFrame {
+
+    public EvidencijaOcjena() {
+
+        setTitle("Evidencija ocjena");
+        setSize(600, 450);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        // Glavni panel
+        JPanel glavniPanel = new JPanel();
+        glavniPanel.setLayout(new BorderLayout());
+        glavniPanel.setBackground(Color.WHITE);
+     // Panel za unos podataka
+        JPanel unosPanel = new JPanel(new GridLayout(4, 2, 10, 10));
+        unosPanel.setBackground(Color.WHITE);
+        unosPanel.setBorder(BorderFactory.createEmptyBorder(30, 40, 30, 40));
+
+        // Polja za unos
+        JLabel imeLabel = new JLabel("Ime učenika:");
+        JTextField imePolje = new JTextField();
+
+        JLabel predmetLabel = new JLabel("Predmet:");
+        JTextField predmetPolje = new JTextField();
+
+        JLabel ocjenaLabel = new JLabel("Ocjena:");
+        JTextField ocjenaPolje = new JTextField();
+
+        JButton dodajDugme = new JButton("Dodaj ocjenu");
+
+        // Dodavanje elemenata
+        unosPanel.add(imeLabel);
+        unosPanel.add(imePolje);
+
+        unosPanel.add(predmetLabel);
+        unosPanel.add(predmetPolje);
+
+        unosPanel.add(ocjenaLabel);
+        unosPanel.add(ocjenaPolje);
+
+        unosPanel.add(new JLabel(""));
+        unosPanel.add(dodajDugme);
+
+        glavniPanel.add(unosPanel, BorderLayout.CENTER);
+        String[] kolone = {"Ime učenika", "Predmet", "Ocjena"};
+
+        javax.swing.table.DefaultTableModel model =
+                new javax.swing.table.DefaultTableModel(kolone, 0);
+
+        JTable tabela = new JTable(model);
+        JScrollPane skrol = new JScrollPane(tabela);
+
+        glavniPanel.add(skrol, BorderLayout.SOUTH);
+        dodajDugme.addActionListener(e -> {
+
+            String ime = imePolje.getText();
+            String predmet = predmetPolje.getText();
+            String ocjenaTekst = ocjenaPolje.getText();
+
+            try {
+                int ocjena = Integer.parseInt(ocjenaTekst);
+
+                if (ime.isEmpty() || predmet.isEmpty()) {
+                    JOptionPane.showMessageDialog(this,
+                            "Popuni sva polja!");
+                } 
+                else if (ocjena < 1 || ocjena > 5) {
+                    JOptionPane.showMessageDialog(this,
+                            "Ocjena mora biti od 1 do 5!");
+                } 
+                else {
+                    model.addRow(new Object[]{ime, predmet, ocjena});
+
+                    imePolje.setText("");
+                    predmetPolje.setText("");
+                    ocjenaPolje.setText("");
+                }
+
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this,
+                        "Unesi broj za ocjenu!");
+            }
+        });
+        // Naslov
+        JLabel naslov = new JLabel("EVIDENCIJA OCJENA");
+        naslov.setFont(new Font("Arial", Font.BOLD, 24));
+        naslov.setHorizontalAlignment(JLabel.CENTER);
+        naslov.setForeground(new Color(35, 55, 90));
+
+        glavniPanel.add(naslov, BorderLayout.NORTH);
+
+        add(glavniPanel);
+    }
+
+    public static void main(String[] args) {
+        EvidencijaOcjena prozor = new EvidencijaOcjena();
+        prozor.setVisible(true);
+    }
+}
